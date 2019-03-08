@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Arc?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.PacManController">
+<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.PacManController">
    <children>
       <MenuBar prefHeight="25.0" prefWidth="600.0">
         <menus>
@@ -30,7 +30,7 @@
         </menus>
       </MenuBar>
       <Label layoutX="14.0" layoutY="35.0" text="Rebotes:" />
+      <Arc fx:id="pac" fill="#f5ff37" layoutX="60.0" layoutY="284.0" length="300.0" radiusX="30.0" radiusY="29.0" startAngle="32.0" stroke="BLACK" strokeLineCap="BUTT" strokeLineJoin="ROUND" strokeMiterLimit="11.0" strokeType="OUTSIDE" type="ROUND" />
       <Label fx:id="points" layoutX="65.0" layoutY="36.0" prefHeight="17.0" prefWidth="46.0" text="0" />
-      <Arc fill="#f5ff37" layoutX="86.0" layoutY="257.0" length="300.0" radiusX="54.0" radiusY="54.0" startAngle="32.0" stroke="BLACK" strokeLineCap="BUTT" strokeLineJoin="ROUND" strokeMiterLimit="11.0" strokeType="OUTSIDE" type="ROUND" />
    </children>
 </Pane>
