@@ -8,24 +8,23 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Arc?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.PacManController">
    <children>
       <MenuBar prefHeight="25.0" prefWidth="600.0">
         <menus>
           <Menu mnemonicParsing="false" text="Archivo">
             <items>
-              <MenuItem fx:id="cargarJuego" mnemonicParsing="false" text="Cargar juego" />
-                  <MenuItem fx:id="guardarJuego" mnemonicParsing="false" text="Guardar juego" />
+              <MenuItem fx:id="cargarJuego" mnemonicParsing="false" onAction="#load" text="Cargar juego" />
+                  <MenuItem fx:id="guardarJuego" mnemonicParsing="false" onAction="#save" text="Guardar juego" />
                   <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem fx:id="salir" mnemonicParsing="false" text="Salir" />
+                  <MenuItem fx:id="salir" mnemonicParsing="false" onAction="#exit" text="Salir" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Ver">
             <items>
-              <MenuItem fx:id="highScore" mnemonicParsing="false" text="Mejores Puntajes" />
+              <MenuItem fx:id="highScore" mnemonicParsing="false" onAction="#show" text="Mejores Puntajes" />
                   <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem fx:id="info" mnemonicParsing="false" text="Acerca del Juego" />
+                  <MenuItem fx:id="info" mnemonicParsing="false" onAction="#information" text="Acerca del Juego" />
             </items>
           </Menu>
         </menus>
