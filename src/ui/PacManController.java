@@ -30,7 +30,7 @@ public class PacManController {
 
     @FXML
     void exit(ActionEvent event) {
-
+    	System.exit(0);;
     }
 
     @FXML
