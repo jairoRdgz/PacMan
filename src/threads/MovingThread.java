@@ -15,6 +15,7 @@ public class MovingThread extends Thread{
 		this.stop = true;
 	}
 	
+	@Override
 	public void run() {
 		while(stop) {
 			move = pc.right(move);
@@ -28,5 +29,9 @@ public class MovingThread extends Thread{
 				e.printStackTrace();
 			}
 		}
+	}
+	public boolean toStop(boolean stop) {
+		stop = !stop;
+		return stop;
 	}
 }
