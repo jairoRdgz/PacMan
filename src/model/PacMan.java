@@ -1,22 +1,25 @@
 package model;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+
 public class PacMan {
 	
-	public static final int ARRIBA = 1;
-	public static final int ABAJO = 2;
-	public static final int IZQUIERDA = 3;
-	public static final int DERECHA = 4;
+	public static final int UP = 1;
+	public static final int DOWN = 2;
+	public static final int LEFT = 3;
+	public static final int RIGHT = 4;
 	
-	//private int level;
+	private int level;
 	private double radio;
 	private double posx;
 	private double posy;
-	private int direction;
+	private String direction;
 	private int wait;
 	private int bounces;
 	private boolean stoped;
 	
-	public PacMan(double radio, double posx, double posy, int direction, int wait, int bounces, boolean stoped ) {
+	public PacMan(double radio, double posx, double posy, String direction, int wait, int bounces, boolean stoped ) {
 		this.radio = radio;
 		this.posx = posx;
 		this.posy = posy;
@@ -25,6 +28,15 @@ public class PacMan {
 		this.bounces = bounces;
 		this.stoped = stoped;
 	}
+	
+	public int getLevel() {
+		return level;
+	}
+	
+	public void setLevel(int level) {
+		this.level = level;
+	}
+	
 	public double getRadio() {
 		return radio;
 	}
@@ -49,11 +61,11 @@ public class PacMan {
 		this.posy = posy;
 	}
 
-	public int getDirection() {
+	public String getDirection() {
 		return direction;
 	}
 
-	public void setDirection(int direction) {
+	public void setDirection(String direction) {
 		this.direction = direction;
 	}
 
@@ -81,7 +93,4 @@ public class PacMan {
 		this.stoped = stoped;
 	}
 	
-	public void loadFile() {
-		
-	}
 }

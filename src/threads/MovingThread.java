@@ -7,12 +7,14 @@ public class MovingThread extends Thread{
 	private boolean stop;
 	private boolean move;
 	private boolean sprite;
+	private int wait;
 	
-	public MovingThread(PacManController paco, boolean moving) {
+	public MovingThread(PacManController paco, boolean moving, int wait) {
 		this.pc = paco;
 		this.move = moving;
 		this.sprite = true;
 		this.stop = true;
+		this.wait = wait;
 	}
 	
 	@Override
@@ -24,7 +26,7 @@ public class MovingThread extends Thread{
 			sprite = pc.closeMouth(sprite);
 			
 			try {
-				sleep(60);
+				sleep(wait);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -33,5 +35,13 @@ public class MovingThread extends Thread{
 	public boolean toStop(boolean stop) {
 		stop = !stop;
 		return stop;
+	}
+	
+	public int points() {
+		int points = 0;
+		while(move) {
+			points ++;
+		}
+		return points;
 	}
 }

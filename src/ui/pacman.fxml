@@ -6,31 +6,35 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Arc?>
 
-<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.PacManController">
+<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="559.0" prefWidth="736.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.PacManController">
    <children>
-      <MenuBar prefHeight="25.0" prefWidth="600.0">
+      <MenuBar prefHeight="25.0" prefWidth="736.0">
         <menus>
-          <Menu mnemonicParsing="false" text="Archivo">
+          <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem fx:id="cargarJuego" mnemonicParsing="false" onAction="#load" text="Cargar juego" />
-                  <MenuItem fx:id="guardarJuego" mnemonicParsing="false" onAction="#save" text="Guardar juego" />
+                  <Menu mnemonicParsing="false" text="Load Game">
+                    <items>
+                      <MenuItem fx:id="level0" mnemonicParsing="false" onAction="#loadLevel0" text="Level 0" />
+                        <MenuItem fx:id="level1" mnemonicParsing="false" onAction="#loadLevel1" text="Level 1" />
+                        <MenuItem fx:id="level2" mnemonicParsing="false" onAction="#loadLevel2" text="Level 2" />
+                    </items>
+                  </Menu>
+                  <MenuItem fx:id="guardarJuego" mnemonicParsing="false" onAction="#save" text="Save Game" />
                   <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem fx:id="salir" mnemonicParsing="false" onAction="#exit" text="Salir" />
+                  <MenuItem fx:id="salir" mnemonicParsing="false" onAction="#exit" text="Exit" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Ver">
+          <Menu mnemonicParsing="false" text="Info">
             <items>
-              <MenuItem fx:id="highScore" mnemonicParsing="false" onAction="#show" text="Mejores Puntajes" />
+              <MenuItem fx:id="highScore" mnemonicParsing="false" onAction="#show" text="Hall of Fame" />
                   <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem fx:id="info" mnemonicParsing="false" onAction="#information" text="Acerca del Juego" />
+                  <MenuItem fx:id="info" mnemonicParsing="false" onAction="#information" text="About the Game" />
             </items>
           </Menu>
         </menus>
       </MenuBar>
       <Label layoutX="14.0" layoutY="35.0" text="Rebotes:" />
-      <Arc fx:id="pac" fill="#f5ff37" layoutX="60.0" layoutY="284.0" length="300.0" radiusX="30.0" radiusY="29.0" startAngle="32.0" stroke="BLACK" strokeLineCap="BUTT" strokeLineJoin="ROUND" strokeMiterLimit="11.0" strokeType="OUTSIDE" type="ROUND" />
       <Label fx:id="points" layoutX="65.0" layoutY="36.0" prefHeight="17.0" prefWidth="46.0" text="0" />
    </children>
 </Pane>
