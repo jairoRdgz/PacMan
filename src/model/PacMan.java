@@ -1,40 +1,27 @@
 package model;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.Serializable;
 
-public class PacMan {
+public class PacMan implements Serializable{
 	
-	public static final int UP = 1;
-	public static final int DOWN = 2;
-	public static final int LEFT = 3;
-	public static final int RIGHT = 4;
+	private Direction direction;
 	
-	private int level;
 	private double radio;
 	private double posx;
 	private double posy;
-	private String direction;
 	private int wait;
 	private int bounces;
 	private boolean stoped;
 	
-	public PacMan(double radio, double posx, double posy, String direction, int wait, int bounces, boolean stoped ) {
+	public PacMan(double radio, double posx, double posy, int wait, int bounces, boolean stoped) {
 		this.radio = radio;
 		this.posx = posx;
 		this.posy = posy;
-		this.direction = direction;
 		this.wait = wait;
 		this.bounces = bounces;
 		this.stoped = stoped;
-	}
-	
-	public int getLevel() {
-		return level;
-	}
-	
-	public void setLevel(int level) {
-		this.level = level;
+		
+		direction = Direction.RIGHT;
 	}
 	
 	public double getRadio() {
@@ -61,14 +48,6 @@ public class PacMan {
 		this.posy = posy;
 	}
 
-	public String getDirection() {
-		return direction;
-	}
-
-	public void setDirection(String direction) {
-		this.direction = direction;
-	}
-
 	public int getWait() {
 		return wait;
 	}
@@ -93,4 +72,44 @@ public class PacMan {
 		this.stoped = stoped;
 	}
 	
+	public void horizontalMove(double maxH) {
+		switch(direction) {
+		case RIGHT:
+			if(posx+10+radio>maxH) {
+				direction = Direction.LEFT;
+				posx = maxH-radio;
+			}else {
+				posx = posx+10;					
+			}
+		break;
+		case LEFT:
+			if(posx-10-radio<0) {
+				direction = Direction.RIGHT;
+				posx = radio;
+			}else {
+				posx = posx-10;					
+			}
+		break;
+		}
+	}
+	public void verticalMove(double maxV) {
+		switch(direction) {
+		case UP:
+			if(posx+10+radio>maxV) {
+				direction = Direction.LEFT;
+				posx = maxV-radio;
+			}else {
+				posx = posx+10;					
+			}
+		break;
+		case DOWN:
+			if(posx-10-radio<0) {
+				direction = Direction.RIGHT;
+				posx = radio;
+			}else {
+				posx = posx-10;					
+			}
+		break;
+		}
+	}
 }

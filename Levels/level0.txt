@@ -1,4 +1,7 @@
-50	70	90	10	LEFT	0	false
-70	120	120	12	RIGTH	0	false
-80	350	330	14	UP	0	false
-60	280	10	16	DOWN	0	false
+#level
+0
+#radio	posx	posy	espera	direction	rebotes	detenidos
+50	70	70	20	LEFT	0	false
+50	180	120	22	RIGHT	0	false
+50	330	330	24	UP	0	false
+50	280	100	16	DOWN	0	false

@@ -13,28 +13,30 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-                  <Menu mnemonicParsing="false" text="Load Game">
+                  <Menu mnemonicParsing="false" text="New Game">
                     <items>
-                      <MenuItem fx:id="level0" mnemonicParsing="false" onAction="#loadLevel0" text="Level 0" />
-                        <MenuItem fx:id="level1" mnemonicParsing="false" onAction="#loadLevel1" text="Level 1" />
-                        <MenuItem fx:id="level2" mnemonicParsing="false" onAction="#loadLevel2" text="Level 2" />
+                      <MenuItem mnemonicParsing="false" onAction="#level0" text="Easy" />
+                        <MenuItem mnemonicParsing="false" onAction="#level1" text="Medium" />
+                        <MenuItem mnemonicParsing="false" onAction="#level2" text="Hard" />
                     </items>
                   </Menu>
-                  <MenuItem fx:id="guardarJuego" mnemonicParsing="false" onAction="#save" text="Save Game" />
+                  <MenuItem mnemonicParsing="false" onAction="#loadGame" text="Load Game" />
+                  <MenuItem mnemonicParsing="false" onAction="#saveGame" text="Save Game" />
                   <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem fx:id="salir" mnemonicParsing="false" onAction="#exit" text="Exit" />
+                  <MenuItem mnemonicParsing="false" onAction="#exit" text="Exit" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Info">
             <items>
-              <MenuItem fx:id="highScore" mnemonicParsing="false" onAction="#show" text="Hall of Fame" />
+              <MenuItem mnemonicParsing="false" onAction="#showHighScores" text="Hall of Fame" />
                   <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem fx:id="info" mnemonicParsing="false" onAction="#information" text="About the Game" />
+                  <MenuItem mnemonicParsing="false" onAction="#information" text="About the Game" />
             </items>
           </Menu>
         </menus>
       </MenuBar>
       <Label layoutX="14.0" layoutY="35.0" text="Rebotes:" />
       <Label fx:id="points" layoutX="65.0" layoutY="36.0" prefHeight="17.0" prefWidth="46.0" text="0" />
+      <Pane fx:id="panel" layoutY="80.0" prefHeight="480.0" prefWidth="736.0" />
    </children>
 </Pane>
