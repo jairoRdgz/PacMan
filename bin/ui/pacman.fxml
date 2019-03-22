@@ -13,7 +13,7 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-                  <Menu mnemonicParsing="false" text="New Game">
+                  <Menu fx:id="game" mnemonicParsing="false" text="New Game">
                     <items>
                       <MenuItem mnemonicParsing="false" onAction="#level0" text="Easy" />
                         <MenuItem mnemonicParsing="false" onAction="#level1" text="Medium" />

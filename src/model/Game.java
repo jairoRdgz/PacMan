@@ -52,8 +52,8 @@ public class Game {
 		return scores[id];
 	}
 	
-	public int addPacos(double radio, double posx, double posy, int wait, int bounces, boolean stoped) {
-		pacos.add(new PacMan(radio, posx, posy, wait, bounces, stoped));
+	public int addPacos(double radio, double posx, double posy, int wait, int bounces, boolean stoped, Direction direc) {
+		pacos.add(new PacMan(radio, posx, posy, wait, bounces, stoped, direc));
 		return pacos.size()-1;
 	}
 	
@@ -63,5 +63,9 @@ public class Game {
 	
 	public int getPoints(int id) {
 		return scores[id].getPoints();
+	}
+	
+	public ArrayList<PacMan> getPacs(){
+		return (ArrayList<PacMan>) pacos;
 	}
 }

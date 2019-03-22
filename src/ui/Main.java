@@ -15,13 +15,16 @@ public class Main extends Application{
 
 	@Override
 	public void start(Stage stage) throws Exception {
-		Parent root = FXMLLoader.load(getClass().getResource("pacman.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("pacman.fxml"));
+		Parent root = loader.load();
+		
+		PacManController bbg = loader.getController();
+		bbg.setStage(stage);
 		
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
-		stage.setTitle("Pac - Man");
+		stage.setTitle("PacMan");
 		stage.show();
-		
 	}
 
 }

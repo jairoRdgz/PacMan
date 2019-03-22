@@ -1,8 +1,6 @@
 package model;
 
-import java.io.Serializable;
-
-public class PacMan implements Serializable{
+public class PacMan{
 	
 	private Direction direction;
 	
@@ -11,17 +9,22 @@ public class PacMan implements Serializable{
 	private double posy;
 	private int wait;
 	private int bounces;
+	private String directions;
 	private boolean stoped;
+	private boolean keep;
+	private double length;
 	
-	public PacMan(double radio, double posx, double posy, int wait, int bounces, boolean stoped) {
+	public PacMan(double radio, double posx, double posy, int wait, int bounces, boolean stoped, Direction direc) {
 		this.radio = radio;
 		this.posx = posx;
 		this.posy = posy;
 		this.wait = wait;
 		this.bounces = bounces;
 		this.stoped = stoped;
+		this.direction = direc;
 		
-		direction = Direction.RIGHT;
+		keep=true;	
+		length = 270;
 	}
 	
 	public double getRadio() {
@@ -72,44 +75,72 @@ public class PacMan implements Serializable{
 		this.stoped = stoped;
 	}
 	
-	public void horizontalMove(double maxH) {
+	public String getDirections() {
+		return directions;
+	}
+	
+	public void setDirections(String directions) {
+		this.directions = directions;
+	}
+
+	public void move(double maxH, double maxV) {
 		switch(direction) {
 		case RIGHT:
+			mouthSprite();
 			if(posx+10+radio>maxH) {
 				direction = Direction.LEFT;
-				posx = maxH-radio;
+				posx = maxH+radio;
 			}else {
-				posx = posx+10;					
+				posx = posx+10;		
+				setBounces(getBounces()+1);
 			}
 		break;
 		case LEFT:
+			mouthSprite();
 			if(posx-10-radio<0) {
 				direction = Direction.RIGHT;
 				posx = radio;
 			}else {
-				posx = posx-10;					
+				posx = posx-10;	
+				setBounces(getBounces()+1);
+			}
+		break;
+		case UP:
+			mouthSprite();
+			if(posy-10-radio<0) {
+				direction = Direction.DOWN;
+				posy = radio;
+			}else {
+				posy = posy-10;	
+				setBounces(getBounces()+1);
+			}
+		break;
+		case DOWN:
+			mouthSprite();
+			if(posy+10+radio<0) {
+				direction = Direction.UP;
+				posy = radio;
+			}else {
+				posy = posy+10;	
+				setBounces(getBounces()+1);
 			}
 		break;
 		}
 	}
-	public void verticalMove(double maxV) {
-		switch(direction) {
-		case UP:
-			if(posx+10+radio>maxV) {
-				direction = Direction.LEFT;
-				posx = maxV-radio;
-			}else {
-				posx = posx+10;					
-			}
-		break;
-		case DOWN:
-			if(posx-10-radio<0) {
-				direction = Direction.RIGHT;
-				posx = radio;
-			}else {
-				posx = posx-10;					
-			}
-		break;
+	
+	public void mouthSprite() {
+		if(keep) {
+			length = length+4;
+		}
+		if(length>=360) {
+			keep = false;
+		}
+		
+		if(!keep) {
+			length = length-4;
+		}
+		if(length<270) {
+			keep = true;
 		}
 	}
 }
